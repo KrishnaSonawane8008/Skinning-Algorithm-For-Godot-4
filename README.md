@@ -33,3 +33,6 @@ This video describes my problem perfectly (Vertex positions in 3D space are repr
 Vertex positions obtained from MeshDataTool at skeleton rest pose:
 <br>
 <video src="https://github.com/user-attachments/assets/7b587fdb-c9d3-410f-aaec-4c0adfa02412"></video>
+<br>
+Vertex positions obtained from MeshDataTool at new pose:
+<br>
