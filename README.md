@@ -37,3 +37,24 @@ Vertex positions obtained from MeshDataTool at skeleton rest pose:
 Vertex positions obtained from MeshDataTool at new pose:
 <br>
 <video src="https://github.com/user-attachments/assets/40e6a987-7c71-4575-97dc-36b2af2499fe"></video>
+<br>
+As you can see that the position obtained from the MeshDataTool after deformation is not the same as the output of the Godot skinning algo. And its not as if I haven't tried to make the MeshDataTool work, i tried setting the pose of the model before using the create_from_surface() method of the MeshDataTool, i have tried changing the bone pose from the MeshDataTool and then getting the vertex position, I have tried the SurfaceTool class to remake the entire geometry from the data( i got from the MeshDataTool) and then using the MeshDataTool to get the vertex positions, NOTHING WORKS!! plus i found a few comments saying that it was not possible to get deformed positions of vertice in the engine, so... i gave up trying the MeshDataTool way.
+<br>
+<h1>The Solution I Came Up With</h1>
+So if Godot cannot provide me the deformed positions, then i decided to make my own deformed positions, i mean all the data needed for any skinning algo is already given to me by the MeshDataTool class, i just need to run them through the skinning algorithm formula to get the deformed positions.
+<br>
+<h3>But which skinning algorithm to use?</h3>
+Implementing a skinning algorithm can be managed, but the problem was selecting one to implement, like there's the basic one called "Linear Blend Skinning" used by a lot of game engines, then there's one called "Approximate Nurbs Skinning", then there are those implemented by 3D modelling software such as Maya and Blender, plus there are those made custom by other people. 
+<br>
+The obvious question comes to mind, "Which skinning algo does Godot 4 use?". Now, I'am not lying when i say this, i was not abled to find the answer to that question, atleast not a "sure" answer. There is very less discussion about this topic in the godot community, and some people just say that its not possible. Well so i tried looking at different skinning algos and then i went through the godot engine source code(perks of opensource) to look for the code files which look similar to the formulas given in those skinning algos(i bascially searched the words skin, skeleton, bone, weight/weights, skinning,...etc through vscode). I was not able to find anything conclusive, so i just thought of trying the basic Linear Blend Skinning algo to see the accuracy of the results and then i thought of playing with the code a bit to get to better results.
+<br>
+<h3>Linear Blend Skinning</h3>
+The requirements of linear blend skinning are mentioned above, two of those requirements are influencing bones and weights for a particular vertex. The MeshDataTool kindly provided me with those two requirements in the form of two arrays, one conatining bone indices and other containing vertex weights, the formula in the skinning algo uses 4 bones and vertex weights per vertex so i just selected elements in consecutive groups of 4 from the arrays, this was not the issue, the problem started when i implemented the Linear Blend Skinning algo in GDScript and gave it mesh data tool result as input. The output produced was, lets just say, VERY WRONG. The vertices were too far deformed  from the intended positions, i then tried a few different combinations of the formula till i lost hope again.
+<br>
+Now you don't understand the severity of the problem, if i cannot find a skinning algo which gives out a good result with the provided input from the MeshDataTool, i'am bascially stuck without any opening in sight except for trying a different game engine, you don't understand my mental state at that point, i just entered the game dev scene and i was one month into this project with barely any results, and I'am trying to find the solution to a problem which doesn't even exist in other engines like Unity(Unity introduced their runtime fees around this time so......probably Unreal would have been the next option), was i just wasting my time?. Then one day, when i was only one more dissapointing search result away from shifting engines i found <a href="https://www.youtube.com/watch?v=5D7oUKrjjao">this</a> video by <a href="https://www.youtube.com/@NitroxNova">Nitrox Nova</a> which gave me some idea about the vertex weights and their relation with skeleton bones.
+<br>
+SO, it turns out that Godt uses 8 vertex weights and bones per vertex for skeletons containing bones with more than 1 children or connected bones for a single joint instead of the afore mentioned 4. Why does Godot use 8 vertex weights and bones per vertex? GOOD QUESTION!!!
+<br>
+<h1>The Solution</h>
+When the issue with number of influencers per vertex was resolved, the output was a success. Linear Blend Skinning provided me with the exact deformed position of the vertices after posing the skeleton:
+<br>
