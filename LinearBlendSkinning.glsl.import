@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://406iy0wm6iu5"
+path="res://.godot/imported/LinearBlendSkinning.glsl-032b50844087aaf38c8e33e2d0f9bc73.res"
+
+[deps]
+
+source_file="res://LinearBlendSkinning.glsl"
+dest_files=["res://.godot/imported/LinearBlendSkinning.glsl-032b50844087aaf38c8e33e2d0f9bc73.res"]
+
+[params]
+
