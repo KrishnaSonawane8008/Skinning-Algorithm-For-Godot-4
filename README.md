@@ -21,6 +21,6 @@ Now as you know what is skinning, lets talk about a program that can implement i
 <li>Rest skeleton pose: Initial skeleton pose.</li>
 <li>New skeleton pose: Pose of the skeleton after it has been altered by the animator</li>
 <li>Vertex weight/weights: a single or multiple(generally four) floating point numbers whoes addition equals to 1.0</li>
-
-<!-- The skinning algorithm needs the initial mesh(without any deformation), the initial skeleton pose(along with the skeleton's layout, i.e with the number and alignment of individual bones in 3D space), a different or current pose of the skeleton, the weight or weights(a floating point number between 0.0-1.0) of a vertex -->
+<br>
+This formula given in <a href="https://skinning.org/direct-methods.pdf">this</a> pdf shows how the deformed vertex position is obtained given the above input.
 
