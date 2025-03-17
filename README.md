@@ -59,4 +59,17 @@ SO, it turns out that Godt uses 8 vertex weights and bones per vertex for skelet
 <h3>The Solution</h3>
 When the issue with number of influencers per vertex was resolved, the output was a success. Linear Blend Skinning provided me with the exact deformed position of the vertices after posing the skeleton:
 <br>
+<br>
 <video src="https://github.com/user-attachments/assets/9af61fcb-ddb1-43db-98a1-41715c2fc8b6"></video>
+<br>
+Infact the output vertex positions were so exact that im beginning to suspect that Godot DOES use Linear Blend Skinning as its skinning algo, but i have no concrete evidence to say so. Once you run the algorithm on CPU, you realize how much computationally expensive it is to run only once, if you want to get the location of each deformed vertex every frame(or close to that) then you would need to run the algorithm as a shader(program running on the GPU). Hence, i made a Compute Shader to do all the calculations on GPU and then take the output from the passed buffer to use for my needs.
+<br>
+Now, Iam a beginner to this engine and to Game Dev as a whole, so someone with experience can make this code run much faster, if somebody is reading this then please do it, just make it a plugin or something. With that, Thanks for Reading.
+<h1>Resources</h1>
+Skinning Algorithm  visualization :- https://www.youtube.com/watch?v=QDXG4wNzkOE
+<br>
+Linear Blend Skinning :- https://skinning.org/direct-methods.pdf
+<br>
+Bones & Weights in Godot :- https://www.youtube.com/watch?v=5D7oUKrjjao
+<br>
+MeshDataTool(Godot Documentation) :- https://docs.godotengine.org/en/stable/classes/class_meshdatatool.html
