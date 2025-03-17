@@ -7,5 +7,19 @@ If you have seen a 3D model being animated(other than translated, rotated or sca
 This is usually done with the help of a skeleton(virtual skeleton, the other one will get you arrested). A skeleton is bascially like a normal skeleton, it has multiple bones, each connected to some others vis joints. The Joints can be then arranged in any pose that the animator wishes. 
 Before posing, the skeleton is placed inside the 3D model, then an algorithm called the skinning algorithm "maps" the model onto the skeleton. When the skeleton is posed, the corresponding mesh is also deformed to mathch the skeleton.
 <br>
-The game engine Godot 4 also uses skeletons to animate 3d models:
-<video src="https://github.com/user-attachments/assets/add102a5-9c95-4cf8-99d1-4e1b22fac9a9" ></video>
+The game engine Godot 4 also uses skeletons to animate 3d models. Here you can see that the skeleton is highlited in yellow, inside the engine,and how it is used to deform the 3D mesh:
+<br>
+<video src="https://github.com/user-attachments/assets/2c185548-9543-4356-bfbf-73c9cd040a35" ></video>
+<br>
+As you can see in the video before posing the skeleton, the mesh was in rest pose(or as it was created in the 3d modelling software), and once the skeleton was posed the mesh was deformed with it or more specifically the vertices of the mesh(only around the rotated bone and other bones connected to it) moved with the rotated bones. This movement of vertices along with the bones of the skeleton is called mesh skinning. A skinning algorithm is just that, a program which takes in the input as the vertices of mesh in rest pose, the pose and layout of the skeleton in rest and the current pose of the skeleton to output the deformed mesh. In the video above, we can see the skinning algorithm implemented by the Godot 4 game engine at work.
+<br>
+<h3>How a Skinning algorithm works</h3>
+Now as you know what is skinning, lets talk about a program that can implement it for us. The skinning algorithm needs the initial mesh, rest skeleton pose, new skeleton pose and vertex weight/weights to produce the deformed mesh:
+<li>
+Initial mesh: Mesh without any deformation.
+Rest skeleton pose: Initial skeleton pose.
+New skeleton pose: Pose of the skeleton after it has been altered by the animator
+Vertex weight/weights: a single or multiple(generally four) floating point numbers whoes addition equals to 1.0
+</li>
+<!-- The skinning algorithm needs the initial mesh(without any deformation), the initial skeleton pose(along with the skeleton's layout, i.e with the number and alignment of individual bones in 3D space), a different or current pose of the skeleton, the weight or weights(a floating point number between 0.0-1.0) of a vertex -->
+
