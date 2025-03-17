@@ -36,3 +36,4 @@ Vertex positions obtained from MeshDataTool at skeleton rest pose:
 <br>
 Vertex positions obtained from MeshDataTool at new pose:
 <br>
+<video src="https://github.com/user-attachments/assets/40e6a987-7c71-4575-97dc-36b2af2499fe"></video>
