@@ -55,6 +55,6 @@ Now you don't understand the severity of the problem, if i cannot find a skinnin
 <br>
 SO, it turns out that Godt uses 8 vertex weights and bones per vertex for skeletons containing bones with more than 1 children or connected bones for a single joint instead of the afore mentioned 4. Why does Godot use 8 vertex weights and bones per vertex? GOOD QUESTION!!!
 <br>
-<h1>The Solution</h1>
+<h3>The Solution</h3>
 When the issue with number of influencers per vertex was resolved, the output was a success. Linear Blend Skinning provided me with the exact deformed position of the vertices after posing the skeleton:
 <br>
