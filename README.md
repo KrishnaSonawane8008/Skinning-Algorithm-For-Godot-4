@@ -8,3 +8,4 @@ This is usually done with the help of a skeleton(virtual skeleton, the other one
 Before posing, the skeleton is placed inside the 3D model, then an algorithm called the skinning algorithm "maps" the model onto the skeleton. When the skeleton is posed, the corresponding mesh is also deformed to mathch the skeleton.
 <br>
 The game engine Godot 4 also uses skeletons to animate 3d models:
+<video src="https://github.com/user-attachments/assets/add102a5-9c95-4cf8-99d1-4e1b22fac9a9" ></video>
