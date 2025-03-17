@@ -16,15 +16,13 @@ As you can see in the video before posing the skeleton, the mesh was in rest pos
 <br>
 <h3>How a Skinning algorithm works</h3>
 Now as you know what is skinning, lets talk about a program that can implement it for us. The skinning algorithm needs the initial mesh, rest skeleton pose, new skeleton pose and vertex weight/weights to produce the deformed mesh:
-<li>
-Initial mesh: Mesh without any deformation.
+<li>Initial mesh: Mesh without any deformation.</li>
 <br>
-Rest skeleton pose: Initial skeleton pose.
+<li>Rest skeleton pose: Initial skeleton pose.</li>
 <br>
-New skeleton pose: Pose of the skeleton after it has been altered by the animator
+<li>New skeleton pose: Pose of the skeleton after it has been altered by the animator</li>
 <br>
-Vertex weight/weights: a single or multiple(generally four) floating point numbers whoes addition equals to 1.0
+<li>Vertex weight/weights: a single or multiple(generally four) floating point numbers whoes addition equals to 1.0</li>
 
-</li>
 <!-- The skinning algorithm needs the initial mesh(without any deformation), the initial skeleton pose(along with the skeleton's layout, i.e with the number and alignment of individual bones in 3D space), a different or current pose of the skeleton, the weight or weights(a floating point number between 0.0-1.0) of a vertex -->
 
