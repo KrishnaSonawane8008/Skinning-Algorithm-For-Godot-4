@@ -22,5 +22,13 @@ Now as you know what is skinning, lets talk about a program that can implement i
 <li>New skeleton pose: Pose of the skeleton after it has been altered by the animator</li>
 <li>Vertex weight/weights: a single or multiple(generally four) floating point numbers whoes addition equals to 1.0</li>
 <br>
-This formula given in <a href="https://skinning.org/direct-methods.pdf">this</a> pdf shows how the deformed vertex position is obtained given the above input.
-
+This formula given in <a href="https://skinning.org/direct-methods.pdf">this</a> pdf shows how the deformed vertex position is obtained given the above input according the "Linear Blend Skinning Algorithm"(a type of skinning algorithm).
+<h1>The Problem</h1>
+<h3>Godot 4 Doesn't provide the Deformed Vertex Positions</h3>
+My problem began when i wanted to access the deformed vertex positions of a mesh in one of my Godot projects, Godot 4 provides the MeshDataTool class which gives you access to individual vertices of a mesh, but the position of the vertices obtained from MeshDataTool for a mesh(deformed by the godot 4 skinning algo) are not at the deformed position, rather at the position of rest.
+<br>
+This video describes my problem perfectly (Vertex positions in 3D space are represented by red cubes):
+<br>
+<br>
+Vertex positions obtained from MeshDataTool at skeleton rest pose:
+<br>
