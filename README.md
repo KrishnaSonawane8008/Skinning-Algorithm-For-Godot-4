@@ -59,3 +59,4 @@ SO, it turns out that Godt uses 8 vertex weights and bones per vertex for skelet
 <h3>The Solution</h3>
 When the issue with number of influencers per vertex was resolved, the output was a success. Linear Blend Skinning provided me with the exact deformed position of the vertices after posing the skeleton:
 <br>
+<video src="https://github.com/user-attachments/assets/9af61fcb-ddb1-43db-98a1-41715c2fc8b6"></video>
